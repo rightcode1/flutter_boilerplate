@@ -35,7 +35,7 @@ flutter pub run build_runner watch --delete-conflicting-outputs
 - **일반 로그인만 적용, SNS 는 추후 업데이트 예정**
 <br/><br/>
 ## 📂 프로젝트 구성
-- **`auth`**: 인증 및 인가 로직이 포함된 디렉토리입니다. 기본 로그인 및 회원가입 스크린이 포함되어있으며, 서버와의 연동을 위한 `repository`, 인증 로직 관리를 위한 `provider` 등의 로직이 포함되어있습니다. `authProvider` 의 경우, 유저 인증 상태를 관리하기 위해 `user` 디렉토리의 `userInfoProvider` 에 의존합니다.
+- **`auth`**: 인증 및 인가 로직이 포함된 디렉토리입니다. 기본 로그인 및 회원가입 스크린이 포함되어있으며, 서버와의 연동을 위한 `repository`, 인증 로직 관리를 위한 `provider` 등의 로직이 포함되어있습니다. `authProvider` 의 경우, 유저 인증 상태를 관리하기 위해 `user` 디렉토리의 `userInfoProvider` 에 의존합니다. **본 프로젝트에서 사용된 Form 데이터 관리 방법은 하기 "참고하면 좋을 내용" 을 확인해주세요. 절대적인 방법은 아니며, 개발 스타일에 따라 다른 방식으로 구현하여 사용하여도 무방합니다.**
 
 - **`common`**: 플러터 앱의 전역적인 설정, 유틸함수, 공용 Provider, 상수 등이 포함된 디렉토리입니다. 특히, 라우팅의 경우 `authProvider` 에 의존합니다.
 - **`example`**: 향후 프로젝트에서 개발할 대부분의 Features 에 대한 예제 파일입니다. `component`, `model`, `provider`, `repository`, `view` 등의 디렉토리로 구성되어있습니다. 특별한 경우가 아닌 이상, 다음과 같은 `package by feature` 의 형태로 개발을 진행합니다.
