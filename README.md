@@ -84,3 +84,85 @@ flutter pub run build_runner watch --delete-conflicting-outputs
 <br/><br/>
 ## 📃 Change Logs
 - **2023-03-29**: 최초 커밋
+
+<br/><br/>
+## 📝 참고하면 좋을 내용
+#### Form 을 관리하는 방법에 대한 프로토타입을 정의한 글입니다. `최애캐시` 프로젝트에서 처음으로 도입한 방법이며 하기 글은 초기 도입 당시 PR 에 작성한 내용입니다.
+
+**[회원가입 FormBuilder 적용에 따른 상태 관리 프로토타입]**
+- 기존 프로젝트에서는 각 `Form` 에 대하여 form data 를 관리하는 `Provider` 를 직접 정의하여 관리하였으나, `FormBuilder` 패키지를 사용할 경우, **하위 `TextFormField` 의 값을 자동으로 `Map` 로 변환하여 대신 관리해준다.**
+- 이러한 특징을 활용하여 새롭게 Form data 를 전반적으로 관리할 수 있는 방법에 대한 프로토타입을 정의하였다. 이와 관련된 시나리오는 하기와 같다.
+
+**1)  각 폼에 대한 폼키는 `GlobalKey` 를 통해 전역적으로 관리된다.**
+```dart
+// common/constant/form_key.dart
+
+// 전역적으로 각 FormBuilder 의 Form 에 대한 키를 관리하는 상수 변수들을 정의한다.
+
+/// 회원가입 시 입력받는 사용자 정보 폼 키
+final signUpFormKey = GlobalKey<FormBuilderState>();
+```
+전역적으로 `FormBuilder` 를 사용하는 폼 키를 관리하며, 앱 내의 어디서든 해당 키를 통해 현재 Form 값을 가져올 수 있다.
+
+**2) API 호출과 관련된 역할을 하는 Form 과 연관된 Provider(ex. `auth_social_login_provider.dart`) 는 가능한 모델 직렬화/역직렬화와 서버 전송 비즈니스 로직만을 담당하도록 한다.**
+
+- 기존 프로젝트에서 사용한 Form Data 를 관리하기 위한 Provider 는 이제 서버와의 통신을 위한 비즈니스 로직이 정의될 수 있도록 한다.
+
+- 하기 예제에서 `auth_social_login_provider.dart` 는 실제 API 인 `POST /v1/auth/social/login` 에 해당하는 비즈니스 로직을 정의하기 위한 provider 이다. 따라서, 서버에 Body 로 보내기 위한 `AuthReqSocialLogin` 모델을 상태로서 관리한다.
+- 이때, `toModel()` 은 `FormBuilder` 를 통해 관리되고 있는 `Map` 형태의 폼 상태를 `Repository` 에서 `Body` 로 전송하기 위한 `Model` 형태로 상태를 재정의하는 메소드를 의미한다. (해당 부분은 Spring 에서 DTO 클래스 내에서 `toEntity()` 를 통해 불변성을 지닌 엔티티로의 변환 작업에서 영감을 얻음.)
+- 즉, 기존 3-layers architecture 에서는 application layer -> business layer 일 때의 데이터 전달은 DTO 를 통해 이루어지고, business layer -> repository layer 에서는 Entity 를 통해 Data source 에 접근 하는 방식을 주로 채택한다. 이러한 방식을 동일하게 적용하여 플러터에서`FormBuilder` 에서 관리하는 폼 데이터를 `Map` 형태의 DTO 로 보고, 실제로 API 호출을 담당하는 `repository` 에서 사용되는 Req/Res Model 을 불변성을 지닌 Entity 처럼 관리하려는 의도이다. 즉, `Entity` 에서의 불변성과 마찬가지로 `FormBuilder` 으로부터 변환된 `Model` 객체는 직접적으로 값을 변경할 수 없어야한다.
+
+```dart
+// auth_social_login_provider.dart
+
+/// Auth API 에서 소셜 로그인을 수행하기 위한 모델을 관리하는 Provider
+/// 주된 역할은 회원가입 폼인 signUpFormKey 를 Body 로 만들어서 관리하는 역할을 한다.
+class AuthSocialLoginStateNotifier extends StateNotifier<AuthReqSocialLogin> {
+  AuthSocialLoginStateNotifier(): super(AuthReqSocialLogin(loginId: '', password: '', provider: ''));
+
+  /// 현재 회원가입 폼을 모델로 변환한다.
+  void toModel() {
+    final formState = signUpFormKey.currentState!.value;
+    state = AuthReqSocialLogin.fromJson(formState);
+  }
+
+  /// 현재 관리되고 있는 모델을 서버로 전송한다.
+  void sendToServer() {
+  }
+}
+```
+
+**3) `Form` 이 필요한 스크린에서는 눈에 보이는 `Visible Form` 과 눈에 보이지 않는 `Invisible Form` 이 존재할 수 있다.**
+- 상기한 Visible Form, Invisible Form 이 필요한 이유는 마지막에 설명한다.
+- `FormBuilder` 패키지에서는 `FormBuilderTextFormField` 와 같은 위젯의 `name` 프로퍼티를 활용하여 자동으로 상태값을 관리한다. 예를 들어, `name: 'title'` 으로 `FormBuilderTextFormField` 를 정의하였을 때, 실제 `FormBuilder` 내의 state 는 `{'title': 'example title'}` 과 같이 관리된다.
+- 이는 최종적으로 서버 요청을 위해 필요한 Model 내의 멤버 변수명과 `FormBuilderTextFormField` 와 같은 위젯의 `name` 프로퍼티의 이름은 동일해야한다는 의미이다. 왜냐하면, 해당 Form data 는 `Map` 형태의 DTO 로 가정하기 때문에 실제 Model 로 변환할 때 `name` 프로퍼티와 Model 의 변수명이 동일해야하기 때문이다.
+- 그러나, 특정 스크린 내에서 `FormBuilder` 를 정의하여 `TextFormField` 와 같은 위젯으로 Form 을 관리한다고 하더라도, 필연적으로 실제 모델에 담아서 보내야하는 데이터와 일치하지 않는 경우가 반드시 존재한다. 예를 들어, 회원가입을 위해 필요한 API 인 `POST /v1/auth/social/login` 에 담아서 보내야하는 Body 는 다음과 같이 정의되어야한다.
+
+```
+{
+  "loginId": "string",
+  "password": "string",
+  "provider": "string",
+  "tel": "string",
+  "name": "string",
+  "nickname": "string",
+  "recommendCode": "string"
+}
+```
+
+그러나, 실제 앱 상에서의 스크린에서는 `loginId`, `password`, `provider` 와 같은 값을 사용자로부터 직접 전달받지 않는다. 즉, 해당 프로퍼티들은 눈에 보이지 않는 상태에서도 `FormBuilder` 를 통해 관리되고 있어야한다는 의미이다.
+
+이러한 문제점을 극복하기 위해 `Invisible Form` 을 도입한다. 해당 Form 은 `FormBuilder` 내에서 다른 `Visible Form` 과 동일하게 관리되는 `TextFormField` 이나, 눈에 보이지 않는 위젯이다. 해당 위젯은 다음과 같이 정의될 수 있다.
+
+```dart
+Visibility(
+    visible: false,
+    maintainState: true,
+    child: FormBuilderTextField(
+      name: 'loginId',
+      initialValue: loginId,
+    ),
+  ),
+```
+
+`Visiblility` 내의 `visible` 속성을 통해 위젯을 숨기면서, 해당 위젯의  state 는 그대로 유지하기 위한 `maintainState` 를 통해 `FormBuilder` 가 해당 필드를 관리할 수 있도록 정의한다. 물론, 숨겨진 위젯은 사용자가 직접 작성할 수 없는 항목이므로 값을 개발자가 정의하여 넣어주어야 한다. 이는 웹 프론트엔드 개발에서 숨겨진 Form 데이터를 관리할 때 사용하는 `<input type="hidden" />` 과 동일하다.
