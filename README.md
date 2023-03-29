@@ -20,10 +20,20 @@ flutter pub get
 flutter pub run build_runner watch --delete-conflicting-outputs
 ```
 
+## ❗️ 주의해주세요!
+- `auth/provider/auth_provider.dart` 파일 내 `redirectLogic` 의 일부 코드는 앱 열람을 위해 주석처리되어있습니다. 실사용 시, `FIXME: 시작: 스플래시 to 로그인 페이지로 이동을 위한 임시 로직, 반드시 제거 후 사용할 것.` 주석 항목을 제거하고, 주석 처리 되어있는 코드들의 주석을 해제해주세요.
+
+- `auth/component/login/column/auth_login_button_column.dart` 내 `FIXME: 홈 스크린으로 넘어가기 위한 임시 라우팅` 로 표기된 `context.goNamed(HomeScreen.routeName)` 코드를 제거하고, 하단 주석처리 된 코드의 주석을 해제 후 사용해주세요.
+
+- 현 보일러플레이트 패키지 내의 model 및 repository 는 기본 형태로만 정의되어있습니다. API 명세서에 맞게 재정의가 필요할 수 있습니다.
+
+- `common/constant/data.dart` 내 `baseHostV1` 상수를 서버 호스트에 맞게 정의 후 사용해주세요.
+<br/><br/>
 ## 🛠️ 환경
 - **FVM 3.7.5**
 - **AOS minSdkVersion 21**
-
+- **일반 로그인만 적용, SNS 는 추후 업데이트 예정**
+<br/><br/>
 ## 📂 프로젝트 구성
 - **`auth`**: 인증 및 인가 로직이 포함된 디렉토리입니다. 기본 로그인 및 회원가입 스크린이 포함되어있으며, 서버와의 연동을 위한 `repository`, 인증 로직 관리를 위한 `provider` 등의 로직이 포함되어있습니다. `authProvider` 의 경우, 유저 인증 상태를 관리하기 위해 `user` 디렉토리의 `userInfoProvider` 에 의존합니다.
 
@@ -32,7 +42,7 @@ flutter pub run build_runner watch --delete-conflicting-outputs
 - **`home`**: 홈에 대한 디렉토리입니다. 필요에 따라 제거 후 사용합니다.
 - **`user`**: 유저를 관리하기 위한 디렉토리입니다. 유저 정보 등을 관리하기 위한 `model`, `provider` 등의 로직이 포함되어있습니다.
 - **`main.dart`**: 앱의 엔트리포인트입니다. `RivderPod`, `ScreenUtils`, `Intl`, `GoRouter` 가 적용되는 최상단 파일입니다.
-
+<br/><br/>
 ## 💡 포함된 패키지
 **해당 패키지 목록은 필요에 따라, 혹은 Deprecated 등의 사유로 예고 없이 버전이 변경될 수 있습니다.**
 ### 빌드 패키지
@@ -71,6 +81,6 @@ flutter pub run build_runner watch --delete-conflicting-outputs
 - `retrofit_generator`: '>=4.0.0 <5.0.0' # Retrofit 을 generate 하기 위한 패키지
 - `build_runner`: '>=2.3.0 <4.0.0' # g.dart 파일 Generate 를 위한 패키지
 - `json_serializable`: ^6.6.1 # 직렬화/역직렬화 코어 패키지
-
+<br/><br/>
 ## 📃 Change Logs
 - **2023-03-29**: 최초 커밋
