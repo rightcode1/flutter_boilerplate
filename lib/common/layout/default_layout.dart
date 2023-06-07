@@ -46,7 +46,6 @@ class DefaultLayout extends ConsumerWidget {
   /// back 버튼에서 추가 기능을 원할 때 사용
   final VoidCallback? onBackPressed;
 
-  // 캐시 탭 - 최애돌 하트 전환 부분에서 앱바에 gradiant 주려고 추가
   final Widget? flexibleSpace;
 
   final PreferredSizeWidget? bottomWidget;
@@ -96,7 +95,7 @@ class DefaultLayout extends ConsumerWidget {
       throw Exception('showBottomDivider 과 bottomWidget 속성은 함께 사용될 수 없습니다.');
     }
 
-    return GestureDetector(
+    return GestureDetector(dfgdfg
       // 키보드 활성화 시, 다른 스크린을 클릭할 때 자동으로 키보드가 내려가도록 전역 설정
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_boilerplate/common/config/scroll_behavior_without_glow.dart';
@@ -5,6 +7,7 @@ import 'package:flutter_boilerplate/common/provider/go_router_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:uni_links/uni_links.dart';
 
 void main() {
   runApp(
@@ -24,6 +27,36 @@ class _FlutterBoilerplate extends ConsumerStatefulWidget {
 }
 
 class _FlutterBoilerplateState extends ConsumerState<_FlutterBoilerplate> {
+  late StreamSubscription _sub;
+
+  @override
+  initState() {
+    super.initState();
+
+    initUniLinks();
+  }
+
+  Future<void> initUniLinks() async {
+// ... check initialUri
+
+    // Attach a listener to the stream
+    _sub = uriLinkStream.listen((Uri? uri) {
+      debugPrint('1234');
+      debugPrint(uri.toString());
+      // Use the uri and warn the user, if it is not correct
+    }, onError: (err) {
+      // Handle exception by warning the user their action did not succeed
+    });
+
+    // NOTE: Don't forget to call _sub.cancel() in dispose()
+  }
+
+  @override
+  void dispose() {
+    _sub.cancel();
+    super.dispose();
+  }
+
   /// 초기 앱 환경을 세팅한다.
   @override
   Widget build(BuildContext context) {

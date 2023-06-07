@@ -62,6 +62,7 @@ dependencies:
   flutter_isolate: ^2.0.4 # Main Thread 이외에 Background 로직 동작을 위해 필요한 패키지
   permission_handler: ^10.2.0 # 앱의 허가(활동, 카메라 등) 등을 대행하는 패키지
   path_provider: ^2.0.13 # Path 등을 보다 간편하게 관리할 수 있는 패키지, JS 계열의 path 에 상응
+  uni_links: ^0.5.1 # 딥링크
 
 dev_dependencies:
   flutter_test:
