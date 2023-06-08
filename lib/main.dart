@@ -77,9 +77,14 @@ class _FlutterBoilerplateState extends ConsumerState<_FlutterBoilerplate> {
       builder: (_, child) => MaterialApp.router(
         builder: (context, child) {
           // AOS 환경에서 ScrollView 에 대한 상단 파란색 Glow 를 해제한다. 필요 없을 경우 해제하고, child 를 return 하면 된다.
-          return ScrollConfiguration(
-            behavior: ScrollBehaviorWithoutGlow(),
-            child: child!,
+          return MediaQuery(
+            data: MediaQuery.of(context).copyWith(
+              textScaleFactor: 1.0,
+            ),
+            child: ScrollConfiguration(
+              behavior: ScrollBehaviorWithoutGlow(),
+              child: child!,
+            ),
           );
         },
         // 라우트 콘피그 (go_router_provider.dart) 적용, 전체 앱은 GoRouter 의 영향을 받는다.
