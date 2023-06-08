@@ -83,7 +83,7 @@ flutter pub run build_runner watch --delete-conflicting-outputs
 - `json_serializable`: ^6.6.1 # 직렬화/역직렬화 코어 패키지
 <br/><br/>
 ## 📃 Change Logs
-- **2023-03.28.**: 최초 커밋
+- **2023.03.28.**: 최초 커밋
 - **2023.06.08.**: 기종 별 상관 없이 Text Factor 1.0 으로 고정
 
 <br/><br/>
