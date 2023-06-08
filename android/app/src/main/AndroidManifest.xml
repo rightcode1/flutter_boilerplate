@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.rightcode.ppl_app">
+    package="com.rightcode.flutter_boilerplate">
 
     <application
         android:name="${applicationName}"
