@@ -3,9 +3,9 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/auth/enum/auth_enum.dart';
-import 'package:flutter_boilerplate/auth/model/form/join/auth_join_form.dart';
-import 'package:flutter_boilerplate/auth/repository/auth_repository.dart';
+import 'package:ppl_app/auth/enum/auth_enum.dart';
+import 'package:ppl_app/auth/model/form/join/auth_join_form.dart';
+import 'package:ppl_app/auth/repository/auth_repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final authJoinFormProvider = StateNotifierProvider<AuthSignUpFormStateNotifier, AuthJoinForm>(

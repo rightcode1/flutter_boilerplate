@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/common/constant/color.dart';
+import 'package:ppl_app/common/constant/color.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -95,7 +95,7 @@ class DefaultLayout extends ConsumerWidget {
       throw Exception('showBottomDivider 과 bottomWidget 속성은 함께 사용될 수 없습니다.');
     }
 
-    return GestureDetector(dfgdfg
+    return GestureDetector(
       // 키보드 활성화 시, 다른 스크린을 클릭할 때 자동으로 키보드가 내려가도록 전역 설정
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(

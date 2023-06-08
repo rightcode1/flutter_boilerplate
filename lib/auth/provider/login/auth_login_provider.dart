@@ -2,12 +2,12 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/auth/model/req/login/auth_req_login.dart';
-import 'package:flutter_boilerplate/auth/provider/form/login/auth_login_form_provider.dart';
-import 'package:flutter_boilerplate/auth/repository/auth_repository.dart';
-import 'package:flutter_boilerplate/common/constant/data.dart';
-import 'package:flutter_boilerplate/common/provider/secure_storage_provider.dart';
-import 'package:flutter_boilerplate/user/provider/user_info_provider.dart';
+import 'package:ppl_app/auth/model/req/login/auth_req_login.dart';
+import 'package:ppl_app/auth/provider/form/login/auth_login_form_provider.dart';
+import 'package:ppl_app/auth/repository/auth_repository.dart';
+import 'package:ppl_app/common/constant/data.dart';
+import 'package:ppl_app/common/provider/secure_storage_provider.dart';
+import 'package:ppl_app/user/provider/user_info_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final authLoginProvider = StateNotifierProvider((ref) {

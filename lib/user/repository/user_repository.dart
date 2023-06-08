@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart' hide Headers;
-import 'package:flutter_boilerplate/common/constant/data.dart';
-import 'package:flutter_boilerplate/common/model/base_res.dart';
-import 'package:flutter_boilerplate/common/provider/dio_provider.dart';
-import 'package:flutter_boilerplate/user/model/res/user_res.dart';
+import 'package:ppl_app/common/constant/data.dart';
+import 'package:ppl_app/common/model/base_res.dart';
+import 'package:ppl_app/common/provider/dio_provider.dart';
+import 'package:ppl_app/user/model/res/user_res.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:retrofit/retrofit.dart';
 

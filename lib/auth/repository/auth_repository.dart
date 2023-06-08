@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_boilerplate/auth/enum/auth_enum.dart';
-import 'package:flutter_boilerplate/auth/model/req/join/auth_req_join.dart';
-import 'package:flutter_boilerplate/auth/model/req/login/auth_req_login.dart';
-import 'package:flutter_boilerplate/common/constant/data.dart';
-import 'package:flutter_boilerplate/common/model/base_res.dart';
-import 'package:flutter_boilerplate/common/provider/dio_provider.dart';
+import 'package:ppl_app/auth/enum/auth_enum.dart';
+import 'package:ppl_app/auth/model/req/join/auth_req_join.dart';
+import 'package:ppl_app/auth/model/req/login/auth_req_login.dart';
+import 'package:ppl_app/common/constant/data.dart';
+import 'package:ppl_app/common/model/base_res.dart';
+import 'package:ppl_app/common/provider/dio_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:retrofit/http.dart';
 

@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart' hide Headers;
-import 'package:flutter_boilerplate/common/provider/dio_provider.dart';
-import 'package:flutter_boilerplate/example/model/req/example_req_list.dart';
+import 'package:ppl_app/common/provider/dio_provider.dart';
+import 'package:ppl_app/example/model/req/example_req_list.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:retrofit/http.dart';
 

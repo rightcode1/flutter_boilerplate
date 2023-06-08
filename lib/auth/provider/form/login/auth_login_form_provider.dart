@@ -1,4 +1,4 @@
-import 'package:flutter_boilerplate/auth/model/form/login/auth_login_form.dart';
+import 'package:ppl_app/auth/model/form/login/auth_login_form.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final authLoginFormProvider = StateNotifierProvider<AuthLoginFormStateNotifier, AuthLoginForm>((ref) {

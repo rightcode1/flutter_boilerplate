@@ -7,7 +7,7 @@
 ## 💽 Installation
 ```
 # Git Clone
-https://github.com/rightcode1/flutter_boilerplate.git
+https://github.com/rightcode1/ppl_app.git
 ```
 
 ```

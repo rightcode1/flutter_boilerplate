@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_boilerplate/common/config/scroll_behavior_without_glow.dart';
-import 'package:flutter_boilerplate/common/provider/go_router_provider.dart';
+import 'package:ppl_app/common/config/scroll_behavior_without_glow.dart';
+import 'package:ppl_app/common/provider/go_router_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/date_symbol_data_local.dart';

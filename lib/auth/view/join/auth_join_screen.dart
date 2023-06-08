@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/auth/component/join/form/auth_join_form_column.dart';
-import 'package:flutter_boilerplate/auth/provider/form/join/auth_join_form_provider.dart';
-import 'package:flutter_boilerplate/auth/provider/join/auth_join_provider.dart';
-import 'package:flutter_boilerplate/common/component/buttons/common_button.dart';
-import 'package:flutter_boilerplate/common/constant/form_keys.dart';
-import 'package:flutter_boilerplate/common/layout/default_layout.dart';
+import 'package:ppl_app/auth/component/join/form/auth_join_form_column.dart';
+import 'package:ppl_app/auth/provider/form/join/auth_join_form_provider.dart';
+import 'package:ppl_app/auth/provider/join/auth_join_provider.dart';
+import 'package:ppl_app/common/component/buttons/common_button.dart';
+import 'package:ppl_app/common/constant/form_keys.dart';
+import 'package:ppl_app/common/layout/default_layout.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

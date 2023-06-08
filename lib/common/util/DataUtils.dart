@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/common/component/buttons/common_button.dart';
-import 'package:flutter_boilerplate/common/constant/color.dart';
+import 'package:ppl_app/common/component/buttons/common_button.dart';
+import 'package:ppl_app/common/constant/color.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DataUtils {

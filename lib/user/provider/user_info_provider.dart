@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/common/constant/data.dart';
-import 'package:flutter_boilerplate/common/provider/secure_storage_provider.dart';
-import 'package:flutter_boilerplate/user/model/res/user_res.dart';
-import 'package:flutter_boilerplate/user/repository/user_repository.dart';
+import 'package:ppl_app/common/constant/data.dart';
+import 'package:ppl_app/common/provider/secure_storage_provider.dart';
+import 'package:ppl_app/user/model/res/user_res.dart';
+import 'package:ppl_app/user/repository/user_repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // 유저 정보를 관리하는 Provider. authProvider 가 listening 한다.

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_boilerplate/auth/enum/auth_enum.dart';
-import 'package:flutter_boilerplate/auth/provider/form/join/auth_join_form_provider.dart';
-import 'package:flutter_boilerplate/common/component/buttons/common_button.dart';
-import 'package:flutter_boilerplate/common/component/text_fields/custom_form_builder_text_field.dart';
-import 'package:flutter_boilerplate/common/constant/color.dart';
-import 'package:flutter_boilerplate/common/util/DataUtils.dart';
+import 'package:ppl_app/auth/enum/auth_enum.dart';
+import 'package:ppl_app/auth/provider/form/join/auth_join_form_provider.dart';
+import 'package:ppl_app/common/component/buttons/common_button.dart';
+import 'package:ppl_app/common/component/text_fields/custom_form_builder_text_field.dart';
+import 'package:ppl_app/common/constant/color.dart';
+import 'package:ppl_app/common/util/DataUtils.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';

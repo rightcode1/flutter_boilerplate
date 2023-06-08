@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/common/constant/color.dart';
+import 'package:ppl_app/common/constant/color.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 /// 가장 기본이 되는 버튼 컴포넌트, 형태에 맞게 재구성하여 사용한다.

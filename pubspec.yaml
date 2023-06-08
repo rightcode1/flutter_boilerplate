@@ -1,4 +1,4 @@
-name: flutter_boilerplate
+name: ppl_app
 description: A new Flutter project.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -63,6 +63,7 @@ dependencies:
   permission_handler: ^10.2.0 # 앱의 허가(활동, 카메라 등) 등을 대행하는 패키지
   path_provider: ^2.0.13 # Path 등을 보다 간편하게 관리할 수 있는 패키지, JS 계열의 path 에 상응
   uni_links: ^0.5.1 # 딥링크
+  change_app_package_name: ^1.1.0 # 패키지명 변경을 위해 사용 (보일러플레이트->앱이름)
 
 dev_dependencies:
   flutter_test:

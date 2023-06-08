@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/common/layout/default_layout.dart';
+import 'package:ppl_app/common/layout/default_layout.dart';
 
 class ExampleScreen extends StatefulWidget {
   static get routeName => 'example';

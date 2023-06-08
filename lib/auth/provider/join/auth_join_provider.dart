@@ -2,10 +2,10 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/auth/model/form/join/auth_join_form.dart';
-import 'package:flutter_boilerplate/auth/model/req/join/auth_req_join.dart';
-import 'package:flutter_boilerplate/auth/provider/form/join/auth_join_form_provider.dart';
-import 'package:flutter_boilerplate/auth/repository/auth_repository.dart';
+import 'package:ppl_app/auth/model/form/join/auth_join_form.dart';
+import 'package:ppl_app/auth/model/req/join/auth_req_join.dart';
+import 'package:ppl_app/auth/provider/form/join/auth_join_form_provider.dart';
+import 'package:ppl_app/auth/repository/auth_repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final authJoinProvider = StateNotifierProvider<AuthJoinStateNotifier, AuthReqJoin>(name: 'authSocialLoginProvider', (ref) {

@@ -1,9 +1,9 @@
-import 'package:flutter_boilerplate/auth/provider/auth_provider.dart';
-import 'package:flutter_boilerplate/auth/view/join/auth_join_screen.dart';
-import 'package:flutter_boilerplate/auth/view/login/auth_login_screen.dart';
-import 'package:flutter_boilerplate/common/view/splash_screen.dart';
-import 'package:flutter_boilerplate/example/view/example_screen.dart';
-import 'package:flutter_boilerplate/home/view/home_screen.dart';
+import 'package:ppl_app/auth/provider/auth_provider.dart';
+import 'package:ppl_app/auth/view/join/auth_join_screen.dart';
+import 'package:ppl_app/auth/view/login/auth_login_screen.dart';
+import 'package:ppl_app/common/view/splash_screen.dart';
+import 'package:ppl_app/example/view/example_screen.dart';
+import 'package:ppl_app/home/view/home_screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 

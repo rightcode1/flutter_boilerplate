@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/auth/provider/form/join/auth_join_form_provider.dart';
+import 'package:ppl_app/auth/provider/form/join/auth_join_form_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final providerMgmtProvider = StateNotifierProvider<ProviderMgmtStateNotifier, List<dynamic>>((ref) => ProviderMgmtStateNotifier(ref: ref));
